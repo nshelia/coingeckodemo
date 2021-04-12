@@ -1,8 +1,14 @@
 import api from 'api'
+import { CoinInfo } from 'components/CoinInfo'
 import { ItemList } from 'components/ItemList'
-import React, { Message, Placeholder, useEffect, useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
+import { Button, Message } from 'semantic-ui-react'
 
 import {
+  CLEAR_COIN,
+  FETCH_COIN_ERROR,
+  FETCH_COIN_LOADING,
+  FETCH_COIN_SUCCESS,
   FETCH_ITEMS_ERROR,
   FETCH_ITEMS_LOADING,
   FETCH_ITEMS_SUCCESS,
@@ -16,6 +22,19 @@ function CoinList() {
   useEffect(() => {
     getInitialData()
   }, [])
+
+  function fetchCoin(id) {
+    dispatch({ type: FETCH_COIN_LOADING })
+
+    api
+      .fetchCoin({ id })
+      .then((data) => {
+        dispatch({ type: FETCH_COIN_SUCCESS, payload: data })
+      })
+      .catch(() => {
+        dispatch({ type: FETCH_COIN_ERROR })
+      })
+  }
 
   function getInitialData() {
     dispatch({ type: FETCH_ITEMS_LOADING })
@@ -40,7 +59,18 @@ function CoinList() {
   if (state.isFetched) {
     return (
       <>
-        <ItemList items={state.items} />
+        {!state.coin.item && <ItemList onItemSelect={(id) => fetchCoin(id)} items={state.items} />}
+        {state.coin.item && (
+          <>
+            <Button
+              onClick={() => dispatch({ type: CLEAR_COIN })}
+              content='Back'
+              icon='left arrow'
+              labelPosition='left'
+            />
+            <CoinInfo item={state.coin.item} />
+          </>
+        )}
       </>
     )
   }
@@ -54,5 +84,6 @@ function CoinList() {
       </>
     )
   }
+  return null
 }
 export default CoinList

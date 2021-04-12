@@ -16,4 +16,8 @@ export default class Coingecko {
       {},
     )
   }
+
+  async fetchCoin({ id }) {
+    return coinGeckoClient.get(`/coins/${id}`, {}, {})
+  }
 }
