@@ -1,7 +1,7 @@
 const initialState = {
   isStatusOkay: false,
-  isFetching: true
-};
+  isFetching: true,
+}
 
 const STATUS_LOADING = 'STATUS_LOADING'
 const STATUS_SUCCESS = 'STATUS_SUCCESS'
@@ -11,31 +11,24 @@ function reducer(state, action) {
   switch (action.type) {
     case STATUS_LOADING:
       return {
-        isFetching: true
-      };
+        isFetching: true,
+      }
     case STATUS_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        isStatusOkay: true
-      };
+        isStatusOkay: true,
+      }
     case STATUS_ERROR:
       return {
         ...state,
         isFailed: true,
         isFetching: false,
-        isStatusOkay: false
-      };
+        isStatusOkay: false,
+      }
     default:
       return state
   }
 }
 
-
-export {
-  reducer,
-  STATUS_ERROR,
-  STATUS_LOADING,
-  STATUS_SUCCESS,
-  initialState
-}
+export { reducer, STATUS_ERROR, STATUS_LOADING, STATUS_SUCCESS, initialState }

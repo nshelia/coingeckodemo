@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-
 export const StyledCentered = styled.div`
-  width: 700px;
+  max-width: 700px;
+  width: 100%;
   margin: auto;
 `

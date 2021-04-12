@@ -5,12 +5,15 @@ export default class Coingecko {
     return coinGeckoClient.get(`/ping`, {}, {})
   }
 
-  async fetchCoins({order, perPage}) {
-    return coinGeckoClient.get(`/coins/markets`, {
-      order,
-      per_page: perPage,
-      vs_currency: 'eur'
-    }, {})
-
+  async fetchCoins({ order, perPage }) {
+    return coinGeckoClient.get(
+      `/coins/markets`,
+      {
+        order,
+        per_page: perPage,
+        vs_currency: 'eur',
+      },
+      {},
+    )
   }
 }
