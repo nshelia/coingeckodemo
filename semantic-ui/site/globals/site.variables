@@ -1,0 +1,19 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+@primaryColor: #E8970C;
+@secondaryColor: #002f4e;
+@pageBackground: #eff0f1;
+@pageMinWidth  : 1049px;
+
+@fontSize : 13px;
+
+@h1: 2.25em;
+
+@defaultBorderRadius: 0.30769em; /* 4px @ 13em */
+
+@disabledOpacity: 0.3;
+
+@infoBackgroundColor: #E6F1F6;
+@infoTextColor: #4E575B;

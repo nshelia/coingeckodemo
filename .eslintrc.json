@@ -1,0 +1,98 @@
+{
+   "root": true,
+   "env": {
+      "node": true,
+      "browser": true,
+      "commonjs": true,
+      "es6": true
+   },
+   "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:react-redux/recommended",
+      "prettier"
+   ],
+   "settings": {
+      "react": {
+         "pragma": "React",
+         "version": "16.13.1"
+      }
+   },
+   "globals": {
+      "gtag": true
+   },
+   "parser": "babel-eslint",
+   "parserOptions": {
+      "ecmaFeatures": {
+         "jsx": true
+      },
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+   },
+   "plugins": [
+      "react-hooks",
+      "react",
+      "prettier",
+      "react-redux",
+      "simple-import-sort"
+   ],
+   "rules": {
+      "prettier/prettier": [
+         "error",
+         {
+            "endOfLine": "auto"
+         }
+      ],
+      "simple-import-sort/sort": "error",
+      "init-declarations": "error",
+      "sort-imports": "off",
+      "import/order": "off",
+      "react/jsx-filename-extension": "off",
+      "key-spacing": "error",
+      "keyword-spacing": [
+         "error",
+         {
+            "after": true,
+            "before": true
+         }
+      ],
+      "react/jsx-pascal-case": "off",
+      "react/jsx-props-no-spreading": "off",
+      "react/require-default-props": "off",
+      "react/forbid-component-props": [
+         "warn",
+         {
+            "forbid": []
+         }
+      ],
+      "react/jsx-max-depth": [
+         "warn",
+         {
+            "max": 6
+         }
+      ],
+      "line-comment-position": "error",
+      "react/prop-types": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": [
+         "warn",
+         {
+            "additionalHooks": "useRecoilCallback"
+         }
+      ],
+      "padded-blocks": [
+         "error",
+         {
+            "blocks": "never",
+            "switches": "never",
+            "classes": "never"
+         }
+      ],
+      "react/jsx-one-expression-per-line": "off",
+      "react/jsx-wrap-multilines": "off",
+      "react/prefer-stateless-function": "off",
+      "react/no-unused-prop-types": "off",
+      "react/sort-comp": "off",
+      "react/state-in-constructor": "off"
+   }
+}
