@@ -26,8 +26,8 @@ function ItemList({ items, placeholders, onItemSelect }) {
       <List selection size={'big'} verticalAlign='middle'>
         <Segment>
           <Grid columns='equal'>
-            <Grid.Column width={6}>{'Coin name'}</Grid.Column>
-            <Grid.Column width={3}>{'Coin price'}</Grid.Column>
+            <Grid.Column width={6}>{'Coin Name'}</Grid.Column>
+            <Grid.Column width={3}>{'Current Price'}</Grid.Column>
             <Grid.Column width={3}>{'High 24H Price'}</Grid.Column>
             <Grid.Column width={3}>{'Low 24H Price'}</Grid.Column>
           </Grid>
