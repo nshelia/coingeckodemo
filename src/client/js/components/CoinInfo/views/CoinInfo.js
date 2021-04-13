@@ -19,7 +19,7 @@ function CoinInfo({ item }) {
         {item.marketCap && (
           <Segment raised>
             <Header>
-              Market Cap in Euro: <span>{item.marketCap}€</span>
+              Market Cap in Euro: <span style={{ color: '#21BA45' }}>{item.marketCap}€</span>
             </Header>
           </Segment>
         )}
