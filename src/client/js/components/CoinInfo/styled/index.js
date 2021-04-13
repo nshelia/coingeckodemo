@@ -22,3 +22,9 @@ export const StyledCoinInfoWrapper = styled.div`
     width: 100%;
   }
 `
+
+export const StyledCenteredImage = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`
