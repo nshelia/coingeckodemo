@@ -1,3 +1,7 @@
+import format from 'date-fns/format'
+import parseISO from 'date-fns/parseISO'
+import { formatNumber } from 'helpers/formatter'
+
 const initialState = {
   isFetching: false,
   isFetched: false,
@@ -8,6 +12,8 @@ const initialState = {
     item: null,
   },
 }
+
+// ACTION TYPES
 
 const FETCH_ITEMS_LOADING = 'FETCH_ITEMS_LOADING'
 const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS'
@@ -21,7 +27,6 @@ const FETCH_COIN_ERROR = 'FETCH_COIN_ERROR'
 
 function reducer(state, action) {
   const itm = action.payload
-  console.log(itm)
   switch (action.type) {
     case FETCH_ITEMS_LOADING:
       return {
@@ -58,14 +63,14 @@ function reducer(state, action) {
           isFetching: false,
           isFetched: true,
           item: {
-            marketCap: itm.market_data.market_cap.eur,
+            marketCap: formatNumber(itm.market_data.market_cap.eur),
             id: itm.id,
             name: itm.name,
             image: itm.image.large,
             description: itm.description.en,
             algorithm: itm.hashing_algorithm,
             symbol: itm.symbol.toUpperCase(),
-            date: itm.genesis_date,
+            date: itm.genesis_date ? format(parseISO(itm.genesis_date), 'MM/dd/yyyy') : 'TBD',
             homepage: itm.links.homepage.shift(),
           },
         },
