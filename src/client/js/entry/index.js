@@ -1,12 +1,10 @@
 import '@babel/polyfill'
-import 'index.scss'
-import 'semantic-ui-less/semantic.less';
+import 'semantic-ui-less/semantic.less'
 
 import { Application } from 'modules/Application'
 import React from 'react'
 import { render } from 'react-dom'
 import { ThemeProvider } from 'styled-components'
-
 
 const root = document.getElementById('appMountPoint')
 
@@ -18,4 +16,4 @@ const App = () => {
   )
 }
 
-render(<App />, root);
+render(<App />, root)
