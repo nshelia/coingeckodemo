@@ -33,6 +33,7 @@
     "connected-react-router": "^5.0.1",
     "copy-webpack-plugin": "^5.0.5",
     "css-loader": "^1.0.1",
+    "date-fns": "^2.20.2",
     "dotenv-webpack": "^1.5.7",
     "es6-crawler-detect": "^3.0.0",
     "eslint": "6.1.0",
