@@ -1,5 +1,5 @@
 import api from 'api'
-import { CoinInfo } from 'components/CoinInfo'
+import { CoinInfo, CoinInfoPlaceholder } from 'components/CoinInfo'
 import { ItemList } from 'components/ItemList'
 import React, { useEffect, useReducer } from 'react'
 import { Button, Message } from 'semantic-ui-react'
@@ -57,17 +57,31 @@ function CoinList() {
   }
 
   if (state.isFetched) {
+    const showItemList = !state.coin.item && !state.coin.isFetching
+    const showCoinPlaceholder = state.coin.isFetching
+    const showCoin = state.coin.item
+
+    const backButton = (
+      <Button
+        onClick={() => dispatch({ type: CLEAR_COIN })}
+        content='Back'
+        icon='left arrow'
+        labelPosition='left'
+      />
+    )
+
     return (
       <>
-        {!state.coin.item && <ItemList onItemSelect={(id) => fetchCoin(id)} items={state.items} />}
-        {state.coin.item && (
+        {showItemList && <ItemList onItemSelect={(id) => fetchCoin(id)} items={state.items} />}
+        {showCoinPlaceholder && (
           <>
-            <Button
-              onClick={() => dispatch({ type: CLEAR_COIN })}
-              content='Back'
-              icon='left arrow'
-              labelPosition='left'
-            />
+            {backButton}
+            <CoinInfoPlaceholder />
+          </>
+        )}
+        {showCoin && (
+          <>
+            {backButton}
             <CoinInfo item={state.coin.item} />
           </>
         )}
